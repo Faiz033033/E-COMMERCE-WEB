@@ -1,0 +1,50 @@
+.cartImages {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.cartName {
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+;
+
+.Item {
+    color: red;
+    padding-left: 20px;
+
+}
+
+.Price {
+    color: red;
+    padding-left: 20px;
+
+}
+
+.Quantity {
+    color: red;
+    padding-left: 20px;
+
+}
+
+.removeButton {
+    background-color: red;
+    float: right;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.singleList {
+    margin-top: 20px;
+    list-style-type: none;
+
+}
