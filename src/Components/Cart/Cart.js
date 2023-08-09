@@ -47,7 +47,7 @@ const Cart = (Props) => {
       </span>
       {cartElements.map((item) => (
         <li className="singleList">
-          <img src={item.imageUrl} alt="Album Image" className="cartImages" />
+          <img src={item.imageUrl} alt="Album" className="cartImages" />
           {item.title}
           {item.price}
           {item.quantity}
@@ -57,9 +57,7 @@ const Cart = (Props) => {
     </ul>
   );
 
-  const showSomething = () => {
-    console.log("showing");
-  };
+  
 
   return (
     <Card>

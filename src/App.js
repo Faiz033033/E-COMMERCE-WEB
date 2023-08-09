@@ -3,7 +3,8 @@ import Header from "./Components/Layout/Header";
 import PageSummary from "./Components/UI/PageSummary";
 import Store from "./Components/Store/Store";
 import Footer from "./Components/Layout/Footer";
-import Cart from './Components/Cart/Cart'
+import Cart from "./Components/Cart/Cart";
+import CartProvider from "./Components/Context/CartProvider";
 
 function App() {
   const [cartClicked, setCartClicked] = useState(false);
@@ -58,13 +59,13 @@ function App() {
     },
   ];
   return (
-    <>
+    <CartProvider>
       <Header onClose={cartDisplayHandler}></Header>
       <PageSummary></PageSummary>
       <Store storeItems={productsArr}></Store>
       <Footer></Footer>
       {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
-    </>
+    </CartProvider>
   );
 }
 
