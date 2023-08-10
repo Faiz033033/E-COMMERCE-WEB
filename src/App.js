@@ -1,10 +1,13 @@
-import { useState } from "react";
 import Header from "./Components/Layout/Header";
 import PageSummary from "./Components/UI/PageSummary";
 import Store from "./Components/Store/Store";
 import Footer from "./Components/Layout/Footer";
 import Cart from "./Components/Cart/Cart";
-import CartProvider from "./Components/Context/CartProvider";
+import { useState } from "react";
+import CartProvider from "./Context/cart-contetxt"
+import { Route } from "react-router-dom";
+import Welcome from "./Components/Pages/Welcome"
+import About from "./Components/Pages/About"
 
 function App() {
   const [cartClicked, setCartClicked] = useState(false);
@@ -58,14 +61,24 @@ function App() {
       key: Math.random().toString(),
     },
   ];
+
   return (
-    <CartProvider>
-      <Header onClose={cartDisplayHandler}></Header>
-      <PageSummary></PageSummary>
-      <Store storeItems={productsArr}></Store>
-      <Footer></Footer>
-      {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
-    </CartProvider>
+    <>
+      <CartProvider>
+        <Header onClose={cartDisplayHandler}></Header>
+        <Route path="/Store">
+          <PageSummary></PageSummary>
+          <Store storeItems={productsArr}></Store>
+
+          {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
+        </Route>
+        <Route path="/About">
+          <About></About>
+          {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
+        </Route>
+        <Footer></Footer>
+      </CartProvider>
+    </>
   );
 }
 

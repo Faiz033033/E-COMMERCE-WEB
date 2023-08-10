@@ -1,50 +1,80 @@
-.cartImages {
+.cartImages{
     width: 80px;
     height: 80px;
     border-radius: 10px;
+  
+}
+.mainUl{
+    padding-left: 0px;
+    width: 600px;
+}
+.singleList{
+    display: flex;
+    margin: 0px;
+    text-align: center;
+    
+    
 }
 
-.cartName {
+.cartName{
     text-align: center;
     font-size: 30px;
     color: black;
     font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+};
+
+
+.cartHeader{
+    display: flex;
+    padding-bottom: 20px;
+}
+.tpq{
+    flex: 0.5;
+    margin-left: 50px;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-left: 45px;
+
+    
+    
 }
 
-;
-
-.Item {
-    color: red;
-    padding-left: 20px;
-
+.tpq1{
+    flex: 0.5;
+    padding-top: 20px;
+    padding-left: 0px;
 }
-
-.Price {
-    color: red;
-    padding-left: 20px;
-
-}
-
-.Quantity {
-    color: red;
-    padding-left: 20px;
-
-}
-
-.removeButton {
+.removeButton{
     background-color: red;
-    float: right;
+    float: right; 
     border: none;
     color: white;
     font-size: 15px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 5px;
     margin-top: 20px;
+    width: 80px;
+    height: 30px;
+
 }
 
-.singleList {
-    margin-top: 20px;
-    list-style-type: none;
+.closeCart{
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: larger;
+    border-radius: 3px;
+    position:absolute;
+    top:25px;
+    right: 35px;
+    
+}
 
+.totalCost{
+    text-align: center;
+    
+    font-weight: bold;
+    font-size: x-large;
 }

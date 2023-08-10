@@ -1,73 +1,42 @@
-import React from "react";
-import Card from '../UI/Card'
-import "./Cart.css";
+import React, { useContext } from "react";
+import Card from "../UI/Card"
+import './Cart.css'
+import CartContext from "../../Context/cart-contetxt";
 
-const Cart = (Props) => {
-  const cartElements = [
-    {
-      title: "Colors",
+const Cart = (Props)=>{
+    const cartCtx = useContext(CartContext);
+     const cartItems = <ul className="mainUl">
+                 <span className="cartHeader">
+                    <span className="tpq">ITEM</span>
+                    <span className="tpq">PRICE</span>
+                    <span className="tpq">QUANTITY</span>
+                </span>
+            {cartCtx.items.map(item=>(
 
-      price: 100,
+                <li key={Math.random().toString()} className="singleList">
+                    <img src={item.imageUrl} alt="Album Image" className="cartImages" />
+                    <div className="tpq1">{item.title}</div>
+                    <div className="tpq1">{item.price}</div>
+                    <div className="tpq1">{item.quantity}</div>
+                    <button className="removeButton">Remove</button>
+                </li>
 
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+            ))}
+        </ul>
 
-      quantity: 2,
-    },
-
-    {
-      title: "Black and white Colors",
-
-      price: 50,
-
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-
-      quantity: 3,
-    },
-
-    {
-      title: "Yellow and Black Colors",
-
-      price: 70,
-
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-
-      quantity: 1,
-    },
-  ];
-
-  const cartItems = (
-    <ul>
-      <span className="cartHeader">
-        <span className="Item">ITEM</span>
-        <span className="Price">PRICE</span>
-        <span className="Quantity">QUANTITY</span>
-      </span>
-      {cartElements.map((item) => (
-        <li className="singleList">
-          <img src={item.imageUrl} alt="Album" className="cartImages" />
-          {item.title}
-          {item.price}
-          {item.quantity}
-          <button className="removeButton">Remove</button>
-        </li>
-      ))}
-    </ul>
-  );
-
-  
-
-  return (
-    <Card>
-      <div className="cartName">CART</div>
-      <button className="closeCart" onClick={Props.onClose}>
-        Close
-      </button>
-      {cartItems}
-    </Card>
-  );
-};
+        return(
+            <Card >
+                <div className="cartName">CART</div>
+                <button className="closeCart" onClick={Props.onClose}>X</button>
+                {cartItems}
+                <div className="totalCost">
+                    <div className="totalCostText">
+                        Total Cost: Rs {' '}{cartCtx.items.reduce((accumulator, curItem)=>{return accumulator + (curItem.quantity*curItem.price)},0)}
+                    </div>
+      
+                </div>
+            </Card>
+        )
+}
 
 export default Cart;
