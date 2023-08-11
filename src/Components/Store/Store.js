@@ -1,6 +1,6 @@
-import react, { useContext } from "react";
+import { useContext } from "react";
 import "./Store.css";
-import CartContext from "../../Context/cart-contetxt";
+import CartContext from "../Context/cart-contetxt";
 const Store = (props) => {
   const cartCtx = useContext(CartContext);
 

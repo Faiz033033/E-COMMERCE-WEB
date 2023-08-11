@@ -2,7 +2,7 @@
     text-align: center;
     margin-right: 250px; 
     margin-left: 250px; 
-
+    
 }
 
 .mainList {
@@ -31,14 +31,15 @@
 }
 
 .itemPrice{
-
+  
     font-size: 20px;
     float: left;
     margin-left: 50px;
     padding-top: 5px;
     font-weight: bold;
-
-
+    margin-top: 10px;
+    
+    
 
 }
 .addToCart{
@@ -54,10 +55,22 @@
     color: white;
     font-weight: bold;
     border-radius: 15px;
+    margin-top: 10px;
 
 }
 
-itemImage{
+.addToCart:hover {background-color: rgb(79, 183, 224)}
+.addToCart:active {
+    background-color:  rgb(79, 183, 224);
+    
+    transform: translateY(2px);
+  }
+
+.itemImage{
     border-radius: 10px;
+    box-shadow: 10px 10px 8px #888888;
+    
+    
+    
 
 }

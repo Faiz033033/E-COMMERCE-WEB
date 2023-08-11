@@ -1,13 +1,13 @@
-import Header from "./Components/Layout/Header";
-import PageSummary from "./Components/UI/PageSummary";
+import Header from "./Layout/Header";
+import PageSummary from "./UI/PageSummary";
 import Store from "./Components/Store/Store";
-import Footer from "./Components/Layout/Footer";
+import Footer from "./Layout/Footer";
 import Cart from "./Components/Cart/Cart";
 import { useState } from "react";
-import CartProvider from "./Context/cart-contetxt"
-import { Route } from "react-router-dom";
-import Welcome from "./Components/Pages/Welcome"
-import About from "./Components/Pages/About"
+import CartProvider from "./Components/Context/CartProvider";
+import { Route, Routes } from "react-router-dom";
+import About from "./Components/Pages/About";
+import Home from "./Components/Pages/Home";
 
 function App() {
   const [cartClicked, setCartClicked] = useState(false);
@@ -66,16 +66,15 @@ function App() {
     <>
       <CartProvider>
         <Header onClose={cartDisplayHandler}></Header>
-        <Route path="/Store">
-          <PageSummary></PageSummary>
-          <Store storeItems={productsArr}></Store>
-
-          {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
-        </Route>
-        <Route path="/About">
-          <About></About>
-          {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
-        </Route>
+        <Routes>
+          <Route path="/Home" element={<Home />}>
+            {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
+          </Route>
+          <Route path="/Store" element={<Store storeItems={productsArr} />}>
+          </Route>
+          <Route path="/About" element={<About />}>
+          </Route>
+        </Routes>
         <Footer></Footer>
       </CartProvider>
     </>

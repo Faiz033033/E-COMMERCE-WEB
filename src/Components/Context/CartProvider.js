@@ -15,16 +15,37 @@ const CartProvider = props =>{
         else{ setIsItems([...isItems, item])};
        
     };
-    console.log(isItems)
+    
 
     const removeItemHandler = (item)=>{
-        return;
+        const filteredList = isItems.filter((lst)=>lst.title===item.title);
+        for( let i = 0; i < isItems.length; i++){ 
+    
+            if ( isItems[i] === filteredList[0]) { 
+        
+                isItems.splice(i, 1); 
+            }
+        
+        }
+        setIsItems([...isItems])
+   
+
+
+
+ 
+        
     };
+
+    const purchaseItemHandler = ()=>{
+        alert(`Purchase Successful, Thank you for Shopping!!`)
+        setIsItems([]);
+    }
     const cartContext = {
         items:isItems,
         totalAMount:0,
         addItem: addItemHandler,
-        removeItem: removeItemHandler
+        removeItem: removeItemHandler,
+        purchaseItem:purchaseItemHandler
     };
     return(
         <CartContext.Provider value={cartContext}>

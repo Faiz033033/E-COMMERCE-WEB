@@ -2,6 +2,7 @@
     width: 80px;
     height: 80px;
     border-radius: 10px;
+    margin-bottom: 20px;
   
 }
 .mainUl{
@@ -29,13 +30,14 @@
 .cartHeader{
     display: flex;
     padding-bottom: 20px;
+    
 }
 .tpq{
     flex: 0.5;
-    margin-left: 50px;
+    margin-left: 60px;
     padding-bottom: 50px;
     padding-top: 20px;
-    padding-left: 45px;
+    padding-left: 50px;
 
     
     
@@ -59,6 +61,9 @@
     height: 30px;
 
 }
+.removeButton:hover{
+    background-color: rgb(202, 0, 0);
+}
 
 .closeCart{
     border: none;
@@ -71,6 +76,10 @@
     right: 35px;
     
 }
+.closeCart:hover{
+    background-color: rgb(202, 0, 0);
+
+}
 
 .totalCost{
     text-align: center;
@@ -78,3 +87,20 @@
     font-weight: bold;
     font-size: x-large;
 }
+
+.purchase{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
+    background-color: skyblue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 240px;
+    margin-top: 20px;
+    
+    
+}
+
+
+.purchase:hover {background-color: rgb(79, 183, 224)}
