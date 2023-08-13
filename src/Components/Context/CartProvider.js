@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CartContext from "./cart-contetxt";
 const CartProvider = props =>{
+    
     let [isItems, setIsItems] = useState([]);
     const addItemHandler= (item)=>{
         const filteredList = isItems.filter((lst)=>lst.title===item.title);
@@ -40,12 +41,32 @@ const CartProvider = props =>{
         alert(`Purchase Successful, Thank you for Shopping!!`)
         setIsItems([]);
     }
+    const minusItemHandler = (item)=>{
+        const filteredList = isItems.filter((lst)=>lst.title===item.title);
+        isItems.forEach((itm)=>{
+            if(itm.quantity>1){
+                if(itm.title===filteredList[0].title){
+                    itm.quantity-=1;
+                }
+                setIsItems([...isItems])
+            }
+            else{
+                removeItemHandler(item);
+            }
+        })
+    }
+    const plusItemHandler=(item)=>{
+        addItemHandler(item);
+
+    };
     const cartContext = {
         items:isItems,
         totalAMount:0,
         addItem: addItemHandler,
         removeItem: removeItemHandler,
-        purchaseItem:purchaseItemHandler
+        purchaseItem:purchaseItemHandler,
+        minusItem:minusItemHandler,
+        plusItem:plusItemHandler
     };
     return(
         <CartContext.Provider value={cartContext}>

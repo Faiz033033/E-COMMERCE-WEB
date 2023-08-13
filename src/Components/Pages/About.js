@@ -13,7 +13,7 @@ const About = (props) => {
       </p>
       
       </div>
-      <img src={aboutImage} alt="BandImage" className='aboutImage' />
+      <img src={aboutImage} alt="Band Image" className='aboutImage' />
     </>
   );
 };

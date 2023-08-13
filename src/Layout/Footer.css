@@ -1,41 +1,47 @@
-.mainFooter {
-    clear: both;
+.mainFooter{
+    clear:both;
     background-color: skyblue;
-    border: 30px solid skyblue;
+    border: 30px solid skyblue  ;
 }
 
-.images {
+.images{
     float: right;
     margin-right: 300px;
     margin-top: 15px;
+    
+    
+
+   
     background-color: skyblue;
 }
 
-.youtube {
-    width: 30px;
+.youtube{
+    width: 30px ;
     height: 30px;
     margin-right: 20px;
+    
+   
+}
+
+.spotify{
+    width: 30px ;
+    height: 30px;
+    margin-right: 20px;
+  
 
 
 }
 
-.spotify {
-    width: 30px;
-    height: 30px;
-    margin-right: 20px;
-
-
-
-}
-
-.facebook {
-    width: 30px;
+.facebook{
+    width: 30px ;
     height: 30px;
     margin-right: 10px;
+    
+ 
 
 }
 
-.footerImage {
+.footerImage{
     font-size: 40px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;

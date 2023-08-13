@@ -15,9 +15,11 @@
     padding-right: 30px;
     padding-left: 30px;
     text-decoration: none;
+    border-radius: 15px;
     
   
 }
+
 .cartButton{
     float: right;
     background-color: black;
@@ -25,6 +27,13 @@
     font-size: large;
     border: 3px solid skyblue;
     border-Radius: 10px;
+    transition: 0.4s;
+}
+.cartButton:hover{
+    transform: scale(1.05);
+}
+.navButtonsNavigation:hover{
+    background-color: skyblue;
 }
 
 .cartCount{

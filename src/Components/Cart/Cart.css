@@ -48,6 +48,22 @@
     padding-top: 20px;
     padding-left: 0px;
 }
+.tpq2{
+    width: 30px;
+    height: 30px;
+    margin-right: 30px;
+    margin-top: 19px;
+    background-color: red;
+    border: none;
+    color: white;
+    font-size: large;
+    border-radius: 5px;
+
+}
+.tpq2:active{
+    transform: translateY(2px);
+    background-color: rgb(202, 0, 0);
+}
 .removeButton{
     background-color: red;
     float: right; 

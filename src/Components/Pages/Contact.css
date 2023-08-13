@@ -1,0 +1,28 @@
+.mainForm{
+    padding-top: 100px;
+}
+
+.mainForm{
+    margin-left: 200px;
+}
+
+.Lable{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    color: gray;
+    font-weight: bold;
+
+};
+
+.Name{
+    margin-bottom: 20px;
+}
+.Email{
+    margin-top: 15px;
+    margin-bottom: 15px
+};
+
+.nameInput{
+    width: 50%;
+    border: 1px solid red;
+};

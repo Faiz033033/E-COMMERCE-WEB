@@ -19,6 +19,8 @@ const Cart = (Props) => {
           <div className="tpq1">{item.title}</div>
           <div className="tpq1">{item.price}</div>
           <div className="tpq1">{item.quantity}</div>
+          <button className="tpq2" style={{backgroundColor:'skyblue'}}onClick={()=>{return cartCtx.plusItem({title:item.title})}}>+</button>
+          <button className="tpq2" onClick={()=>{return cartCtx.minusItem({title:item.title})}}>-</button>
           <button className="removeButton" onClick={()=>{return cartCtx.removeItem({title:item.title})}}>Remove</button>
         </li>
       ))}

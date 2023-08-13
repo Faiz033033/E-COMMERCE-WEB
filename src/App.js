@@ -1,16 +1,18 @@
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./Layout/Header";
 import PageSummary from "./UI/PageSummary";
 import Store from "./Components/Store/Store";
 import Footer from "./Layout/Footer";
 import Cart from "./Components/Cart/Cart";
-import { useState } from "react";
 import CartProvider from "./Components/Context/CartProvider";
-import { Route, Routes } from "react-router-dom";
 import About from "./Components/Pages/About";
 import Home from "./Components/Pages/Home";
+import Contact from "./Components/Pages/Contact";
 
 function App() {
   const [cartClicked, setCartClicked] = useState(false);
+
   const cartDisplayHandler = () => {
     setCartClicked(true);
   };
@@ -63,21 +65,29 @@ function App() {
   ];
 
   return (
-    <>
-      <CartProvider>
-        <Header onClose={cartDisplayHandler}></Header>
-        <Routes>
-          <Route path="/Home" element={<Home />}>
-            {cartClicked && <Cart onClose={cartDisplayHider}></Cart>}
-          </Route>
-          <Route path="/Store" element={<Store storeItems={productsArr} />}>
-          </Route>
-          <Route path="/About" element={<About />}>
-          </Route>
-        </Routes>
-        <Footer></Footer>
-      </CartProvider>
-    </>
+    <CartProvider>
+      <Header onClose={cartDisplayHandler} />
+      <Routes>
+        <Route path="/Home" element={<Home />} key="home">
+          <Route index element={<PageSummary />} />
+          {cartClicked && <Cart onClose={cartDisplayHider} />}
+        </Route>
+        <Route
+          path="/Store"
+          element={<Store storeItems={productsArr} />}
+          key="store"
+        >
+          <Route index element={<PageSummary />} />
+          {cartClicked && <Cart onClose={cartDisplayHider} />}
+        </Route>
+        <Route path="/About" element={<About />} key="about">
+          <Route index element={<div>{"Helper"}</div>} />
+          {cartClicked && <Cart onClose={cartDisplayHider} />}
+        </Route>
+        <Route path="/Contact" element={<Contact />} key="contact" />
+      </Routes>
+      <Footer />
+    </CartProvider>
   );
 }
 
