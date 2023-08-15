@@ -1,52 +1,57 @@
 import React, { useContext } from "react";
-import Card from "../../UI/Card";
-import "./Cart.css";
-import CartContext from "../Context/cart-contetxt";
 
-const Cart = (Props) => {
+import CartContext from "../../store/cart-context";
+
+import "./Cart.css";
+
+const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-  const cartLength = cartCtx.items.length
-  const cartItems = (
-    <ul className="mainUl">
-      <span className="cartHeader">
-        <span className="tpq">ITEM</span>
-        <span className="tpq">PRICE</span>
-        <span className="tpq">QUANTITY</span>
-      </span>
-      {cartCtx.items.map((item) => (
-        <li key={Math.random().toString()} className="singleList">
-          <img src={item.imageUrl} alt="Album Image" className="cartImages" />
-          <div className="tpq1">{item.title}</div>
-          <div className="tpq1">{item.price}</div>
-          <div className="tpq1">{item.quantity}</div>
-          <button className="tpq2" style={{backgroundColor:'skyblue'}}onClick={()=>{return cartCtx.plusItem({title:item.title})}}>+</button>
-          <button className="tpq2" onClick={()=>{return cartCtx.minusItem({title:item.title})}}>-</button>
-          <button className="removeButton" onClick={()=>{return cartCtx.removeItem({title:item.title})}}>Remove</button>
-        </li>
-      ))}
-    </ul>
-  );
+ 
+
+  const removeItemHandler = (product) => {
+    cartCtx.removeItem(product);
+    
+};
+const cartList = cartCtx.items.map((product) => {
+    return (
+      <li key={product.id} className="cartitems">
+        <span className="cart-col">
+          <img src={product.imageUrl} alt={product.title} width="100px" />
+          <span>{product.title}</span>
+        </span>
+        <span className="cart-col">
+          <span>${product.price}</span>
+        </span>
+        <span className="cart-col">
+          <span>Quantity:{product.quantity}</span>
+          <button
+            className="remove-item"
+            onClick={() => removeItemHandler(product)}
+          >
+            Remove
+          </button>
+        </span>
+      </li>
+    );
+  });
+  let Total = 0;
+  cartCtx.items.forEach((product) => {
+    Total += Number(product.price * product.quantity);
+  });
 
   return (
-    <Card>
-      <div className="cartName">CART</div>
-      <button className="closeCart" onClick={Props.onClose}>
+    <div className="cartbox">
+      <button className="close-cart" onClick={props.onClose}>
         X
       </button>
-      {cartItems}
-      <div className="totalCost">
-        <div className="totalCostText">
-          {cartCtx.items.reduce((accumulator, curItem) => {
-            return accumulator + curItem.quantity;
-          }, 0) == 0
-            ? "Cart is Empty"
-            : `Total Cost: Rs ${cartCtx.items.reduce((accumulator, curItem) => {
-                return accumulator + curItem.quantity * curItem.price;
-              }, 0)}`}
-        </div>
+      <div className="headings">
+        <div>ITEM</div>
+        <div>PRICE</div>
+        <div>QUANTITY</div>
       </div>
-      {cartLength>0 && <button className="purchase" onClick={cartCtx.purchaseItem}>Purchase</button>}
-    </Card>
+      <div className="cartdetails">{cartList}</div>;
+      <div className="total-price">Total: ${Total}</div>
+    </div>
   );
 };
 

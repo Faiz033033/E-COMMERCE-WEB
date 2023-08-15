@@ -1,122 +1,46 @@
-.cartImages{
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  
+
+
+.cartbox {
+    z-index: 20;
+    position: fixed;
+    top: 20vh;
+    background-color: white;
+    border: 1px solid black;
+    right: 0;
+    display: block;
+    width: 30%;
+    padding: 20px 20px;
 }
-.mainUl{
-    padding-left: 0px;
-    width: 600px;
-}
-.singleList{
+
+.headings {
     display: flex;
-    margin: 0px;
-    text-align: center;
+    justify-content: space-between;
     
     
 }
 
-.cartName{
-    text-align: center;
-    font-size: 30px;
-    color: black;
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
-};
-
-
-.cartHeader{
+.cartitems {
     display: flex;
-    padding-bottom: 20px;
-    
-}
-.tpq{
-    flex: 0.5;
-    margin-left: 60px;
-    padding-bottom: 50px;
+    justify-content: space-between;
     padding-top: 20px;
-    padding-left: 50px;
-
-    
-    
+    align-items: center;
 }
 
-.tpq1{
-    flex: 0.5;
-    padding-top: 20px;
-    padding-left: 0px;
-}
-.tpq2{
-    width: 30px;
-    height: 30px;
-    margin-right: 30px;
-    margin-top: 19px;
-    background-color: red;
-    border: none;
-    color: white;
-    font-size: large;
-    border-radius: 5px;
-
-}
-.tpq2:active{
-    transform: translateY(2px);
-    background-color: rgb(202, 0, 0);
-}
-.removeButton{
-    background-color: red;
-    float: right; 
-    border: none;
-    color: white;
-    font-size: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border-radius: 5px;
-    margin-top: 20px;
-    width: 80px;
-    height: 30px;
-
-}
-.removeButton:hover{
-    background-color: rgb(202, 0, 0);
+.close-cart {
+    margin: 10px 15px;
+    padding: 2px 5px;
+    margin-left: 90%;
+background-color: lightcoral;
+border-color: lightcoral;
 }
 
-.closeCart{
-    border: none;
-    background-color: red;
-    color: white;
-    font-size: larger;
-    border-radius: 3px;
-    position:absolute;
-    top:25px;
-    right: 35px;
-    
-}
-.closeCart:hover{
-    background-color: rgb(202, 0, 0);
-
+.remove-item {
+    margin-left: 10px;
+    background-color: rgb(250, 50, 50);
+    border: 1px solid rgb(250, 50, 50);
 }
 
-.totalCost{
-    text-align: center;
-    
-    font-weight: bold;
-    font-size: x-large;
+.total-price {
+    font-size: 2rem;
+    margin-left: 60%;
 }
-
-.purchase{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: x-large;
-    background-color: skyblue;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    text-align: center;
-    margin-left: 240px;
-    margin-top: 20px;
-    
-    
-}
-
-
-.purchase:hover {background-color: rgb(79, 183, 224)}
