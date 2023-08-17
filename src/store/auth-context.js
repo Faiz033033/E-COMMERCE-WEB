@@ -15,11 +15,13 @@ export const AuthContextProvider = (props) => {
 
   const userisLoggedIn = !!token;
   
-  const loginHandler = (token) => {
+  const loginHandler = (token, email) => {
+    let emailWithoutDot=email.replace(/[@.]/g,'');
     console.log('called loginhandler');
     setToken(token);
     setTokenVal(token);
     localStorage.setItem("token", token);
+    localStorage.setItem("email", emailWithoutDot)
   };
 
   const logoutHandler=()=>{
@@ -30,8 +32,7 @@ const values = {
     token: token,
     isLoggedIn: userisLoggedIn,
     login: loginHandler,
-   
-    logout:logoutHandler,
+   logout:logoutHandler,
     tokenVal:tokenVal
   };
   return (
