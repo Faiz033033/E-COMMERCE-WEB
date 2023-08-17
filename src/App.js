@@ -104,25 +104,27 @@ function App() {
                 <main>{productList}</main>
               </>
             )}
-            {!isLoggedIn && <Redirect to="/login" />}
+            {!isLoggedIn && <Route path="/store">
+            <Redirect to="/login" />
+            </Route>}
             
           </Route>
-          <Route path="/about">
+          <Route path="/about" exact>
             <About />
           </Route>
-          <Route path="/home">
+          <Route path="/home" exact>
             <Home />
           </Route>
-          <Route path="/contactus">
+          <Route path="/contactus" exact>
             <ContactUs getUserDetails={submitUserDetails} />
           </Route>
-          <Route path="/login">
+          <Route path="/login" exact>
             <Login />
           </Route>
-          <Route path="/store/:productId">
+          <Route path="/store/:productId" exact>
         <ProductList />
       </Route>
-      
+     
           
         </Switch>
       </main>
