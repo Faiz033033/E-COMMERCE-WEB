@@ -6,7 +6,7 @@ const CartProvider = (props) => {
   const [addItems, setAddItems] = useState([]);
   const AuthCtx = useContext(AuthContext);
 
-  let urlOfCrud = "https://crudcrud.com/api/627464ae57834ad5aeb8139b29ad2418";
+  let urlOfCrud = "https://crudcrud.com/api/9cefd253406d419c8870981127e4987b";
   let userIdentity = localStorage.getItem("email");
 
   const getDataFromCrud = useCallback(async () => {

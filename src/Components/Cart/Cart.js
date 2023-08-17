@@ -49,7 +49,7 @@ const cartList = cartCtx.items.map((product) => {
         <div>PRICE</div>
         <div>QUANTITY</div>
       </div>
-      <div className="cartdetails">{cartList}</div>;
+      <div className="cartdetails">{cartList}</div>
       <div className="total-price">Total: ${Total}</div>
     </div>
   );

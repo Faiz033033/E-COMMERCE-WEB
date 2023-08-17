@@ -8,7 +8,7 @@ const Home = () => {
       <div className="home-page">
         <Header />
 
-        <h1>The Generics</h1>
+        <h1>The Sharpner Store</h1>
         <button className="latest-album">Get our Latest Album</button>
         <button className="play-button">▶</button>
       </div>
@@ -52,7 +52,7 @@ const Home = () => {
         </div>
       </div>
       <footer>
-        <h1>The Generics</h1>
+        <h1>The Sharpner Store</h1>
       </footer>
     </div>
   );

@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer">
       <div className="footer1">
         <h4>
-          ©Copyright 2023, MohammedFejan | All Rights Reserved
+          ©Copyright 2023, The Sharpner Store | All Rights Reserved
         </h4>
       </div>
       <div className="footer2">
