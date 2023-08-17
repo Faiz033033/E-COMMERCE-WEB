@@ -1,5 +1,5 @@
 import React from "react";
-import design from "./about.jpg";
+import design from "./about.png";
 import "./About.css";
 import "font-awesome/css/font-awesome.min.css";
 const About = () => {
