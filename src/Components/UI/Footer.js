@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer">
       <div className="footer1">
         <h4>
-          ©Copyright 2022, The Biker Zone | All Rights Reserved
+          ©Copyright 2023, MohammedFejan | All Rights Reserved
         </h4>
       </div>
       <div className="footer2">

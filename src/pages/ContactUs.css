@@ -1,8 +1,9 @@
 .user-form {
     display: block;
-    margin: auto;
+    margin-bottom: 125px;
+    margin-left: 500px;
     width: 30%;
-    height: 200px;
+    height: 50%;
     border: 1px solid black;
     padding: 15px 10px;
     border-radius: 5px;
@@ -17,7 +18,7 @@
 .user-form label {
     font-size: 1.2rem;
     display: block;
-    padding: 5px;
+    margin-top: 0px;
 }
 .user-form input {
     width: 50%;
