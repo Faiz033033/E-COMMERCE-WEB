@@ -1,17 +1,18 @@
 import "./App.css";
 import Header from "./Components/Header";
-import React, { useState, useContext } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import React, { useState, useContext, Suspense } from "react";
+import {Route, Switch, Redirect } from "react-router-dom";
 import Cart from "./Components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
 import AlbumList from "./Components/AlbumList";
 import ProductList from "./pages/ProductList";
-import About from "./pages/About";
+
 import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
 import Login from "./pages/Login";
 import Footer from "./Components/UI/Footer";
 import AuthContext from "./store/auth-context";
+
 
 const productsArr = [
   {
@@ -46,14 +47,14 @@ const productsArr = [
 
 function App() {
   const [cart, setCart] = useState(false);
-
+  
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
-
+  
   const productList = productsArr.map((product) => {
     return (
       <AlbumList
-        key={product.id}
+      key={product.id}
         id={product.id}
         title={product.title}
         image={product.imageUrl}
@@ -84,34 +85,34 @@ function App() {
     );
     const data = await response.json();
     console.log(data);
-    alert("Thanks For Contacting Us");
   };
-
+  const About=React.lazy(()=>import("./pages/About"));
   return (
     <CartProvider>
+      
       <Header onShow={openCartHandler} />
-
+      
       <main>
         <Switch>
-          <Route path="/store" exact>
+        <Route path="/store" exact>
+          
             {isLoggedIn && (
               <>
-                {cart && <Cart onClose={closeCartHandller} />}
+              {cart && <Cart onClose={closeCartHandller} />}
                 <div className="title">
-                  <h1>The Sharpner Store</h1>
+                  <h1>The Generics</h1>
                 </div>
                 <h1 className="category">Music</h1>
                 <main>{productList}</main>
               </>
             )}
-            {!isLoggedIn && (
-              <Route path="/store">
-                <Redirect to="/login" />
-              </Route>
-            )}
+            {!isLoggedIn && <Redirect to="/login" />}
+           
           </Route>
-          <Route path="/about" exact>
+          <Route path="/about" >
+          <Suspense fallback={<div>Loading...</div>}>
             <About />
+            </Suspense>
           </Route>
           <Route path="/home" exact>
             <Home />
@@ -123,11 +124,14 @@ function App() {
             <Login />
           </Route>
           <Route path="/store/:productId" exact>
-            <ProductList />
-          </Route>
+        <ProductList />
+      </Route>
+     
+          
         </Switch>
       </main>
       <Footer />
+      
     </CartProvider>
   );
 }

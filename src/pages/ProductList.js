@@ -5,7 +5,6 @@ import "./ProductList.css";
 
 const ProductList = () => {
   const { productId } = useParams();
-
   const productsArr = [
     {
       id: "a1",

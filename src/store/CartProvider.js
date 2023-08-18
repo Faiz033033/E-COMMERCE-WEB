@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useCallback } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "./auth-context";
 import CartContext from "./cart-context";
 
@@ -6,10 +6,10 @@ const CartProvider = (props) => {
   const [addItems, setAddItems] = useState([]);
   const AuthCtx = useContext(AuthContext);
 
-  let urlOfCrud = "https://crudcrud.com/api/9cefd253406d419c8870981127e4987b";
+  let urlOfCrud = "https://crudcrud.com/api/a3107ab62f564c949874691153508bb8";
   let userIdentity = localStorage.getItem("email");
 
-  const getDataFromCrud = useCallback(async () => {
+  const getDataFromCrud = async () => {
     try {
       const response = await fetch(`${urlOfCrud}/${userIdentity}`);
       const result = await response.json();
@@ -18,15 +18,14 @@ const CartProvider = (props) => {
     } catch (err) {
       alert(err);
     }
-  }, [setAddItems, urlOfCrud, userIdentity]);
-
+  };
   const postDataToCrud = async (item) => {
     try {
       let alreadyExistsItem = addItems.find(
         (element) => element.id === item.id
       );
       if (alreadyExistsItem) {
-        alert("Item already present");
+        alert("item already present");
       } else {
         const addToCrud = await fetch(`${urlOfCrud}/${userIdentity}`, {
           method: "POST",
@@ -36,13 +35,12 @@ const CartProvider = (props) => {
           },
         });
         console.log("addToCrud", addToCrud); 
-        console.log("Item added");
+        console.log("added");
       }
     } catch (err) {
-      console.log("Error", err);
+      console.log("error", err);
     }
   };
-
   const deleteDataFromCrud = async (id) => {
     try {
       const response = await fetch(`${urlOfCrud}/${userIdentity}/${id}`, {
@@ -59,11 +57,11 @@ const CartProvider = (props) => {
   };
 
   const addItemToCart = (item) => {
-    postDataToCrud(item); 
+
+    postDataToCrud(item);
     console.log("item", item);
     getDataFromCrud();
   };
-
   const removeItemFromCart = (item) => {
     console.log("item._id", item._id);
     deleteDataFromCrud(item._id);
@@ -76,7 +74,7 @@ const CartProvider = (props) => {
     };
     console.log("useeffectcalled");
     fetchData();
-  }, [AuthCtx.login, AuthCtx.logout, getDataFromCrud]);
+  }, [AuthCtx.login, AuthCtx.logout]);
 
   const cartContext = {
     items: addItems,
